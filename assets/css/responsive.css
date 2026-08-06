@@ -1,0 +1,99 @@
+/*=====================================
+Tablet
+=====================================*/
+
+@media (max-width: 991px) {
+
+    .hero-section{
+        padding:30px 0 60px;
+    }
+
+    .hero-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
+    }
+
+    .hero-card{
+        min-height:480px;
+    }
+
+    .hero-card:last-child{
+        grid-column:span 2;
+    }
+
+    .hero-overlay{
+        left:24px;
+        right:24px;
+        bottom:24px;
+    }
+
+    .hero-overlay h2{
+        font-size:32px;
+    }
+
+}
+
+/*=====================================
+Mobile
+=====================================*/
+
+@media (max-width: 767px) {
+
+    .hero-section{
+        padding:25px 0 45px;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .hero-card{
+        min-height:420px;
+    }
+
+    .hero-card:last-child{
+        grid-column:auto;
+    }
+
+    .hero-overlay{
+        left:20px;
+        right:20px;
+        bottom:20px;
+    }
+
+    .hero-category{
+        font-size:11px;
+        padding:6px 12px;
+    }
+
+    .hero-overlay h2{
+        font-size:28px;
+    }
+
+    .hero-overlay p{
+        font-size:15px;
+        max-width:100%;
+    }
+
+}
+/*=====================================
+Small Mobile
+=====================================*/
+
+@media (max-width: 480px) {
+
+    .hero-card{
+        min-height:360px;
+    }
+
+    .hero-overlay h2{
+        font-size:24px;
+    }
+
+    .hero-overlay p{
+        font-size:14px;
+        line-height:1.6;
+    }
+
+}
