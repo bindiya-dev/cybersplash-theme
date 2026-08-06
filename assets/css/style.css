@@ -68,3 +68,70 @@ ul{
     width:min(100% - 40px,var(--container));
     margin-inline:auto;
 }
+/*
+=========================================
+HEADER
+=========================================
+*/
+
+.site-header{
+
+    background:#fff;
+}
+
+.header-logo{
+
+    padding:45px 0;
+    text-align:center;
+}
+
+.site-logo{
+
+    display:inline-block;
+}
+
+.site-logo img{
+
+    width:220px;
+    height:auto;
+}
+
+.main-navigation{
+
+    border-top:1px solid #ececec;
+    border-bottom:1px solid #ececec;
+    background:#fff;
+}
+
+.main-menu{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:42px;
+
+    min-height:60px;
+}
+
+.main-menu li{
+
+    position:relative;
+}
+
+.main-menu a{
+
+    display:block;
+
+    font-family:var(--body);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    transition:var(--transition);
+}
+
+.main-menu a:hover{
+
+    color:var(--primary);
+}

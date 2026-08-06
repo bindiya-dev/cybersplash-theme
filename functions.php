@@ -31,6 +31,13 @@ add_action( 'after_setup_theme', 'cybersplash_setup' );
 
 function cybersplash_enqueue_assets() {
 
+    wp_enqueue_style(
+        'cybersplash-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap',
+        array(),
+        null
+    );
+
 	wp_enqueue_style(
 		'cybersplash-style',
 		get_template_directory_uri() . '/assets/css/style.css',
