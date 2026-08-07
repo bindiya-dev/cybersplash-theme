@@ -46,11 +46,11 @@ function cybersplash_enqueue_assets() {
 	);
 
     wp_enqueue_style(
-		'cybersplash-style',
-		get_template_directory_uri() . '/assets/css/responsive.css',
-		array(),
-		wp_get_theme()->get( 'Version' )
-	);
+        'cybersplash-responsive',
+        get_template_directory_uri() . '/assets/css/responsive.css',
+        array( 'cybersplash-style' ),
+        wp_get_theme()->get( 'Version' )
+    );
 
 	wp_enqueue_script(
 		'cybersplash-script',

@@ -97,3 +97,60 @@ Small Mobile
     }
 
 }
+
+/*=====================================
+Featured Categories
+=====================================*/
+
+@media (max-width:991px){
+
+    .featured-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
+    }
+
+    .featured-card:last-child{
+        grid-column:span 2;
+    }
+
+}
+/* Mobile */
+@media (max-width:767px){
+
+    .featured-categories{
+        padding:60px 0;
+    }
+
+    .featured-grid{
+        grid-template-columns:1fr;
+    }
+
+    .featured-card:last-child{
+        grid-column:auto;
+    }
+
+    .featured-image img{
+        height:280px;
+    }
+
+    .featured-content{
+        padding:24px;
+    }
+
+    .featured-content h3{
+        font-size:26px;
+    }
+
+}
+/*Small Mobile */
+@media (max-width:480px){
+
+    .featured-image img{
+        height:240px;
+    }
+
+    .featured-content h3{
+        font-size:22px;
+    }
+
+}
