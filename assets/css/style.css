@@ -478,3 +478,125 @@ Latest Stories
     line-height:1.8;
 
 }
+
+/*=====================================
+Explore More
+=====================================*/
+
+.explore-more{
+    padding:20px 0 90px;
+    text-align:center;
+}
+
+.explore-btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-width:220px;
+    height:60px;
+
+    background:linear-gradient(135deg,#d4b06a,#b98b3d);
+    color:#fff;
+
+    border-radius:50px;
+
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    transition:.35s;
+
+}
+
+.explore-btn:hover{
+
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+/*=====================================
+Style Categories
+=====================================*/
+
+.style-categories{
+
+    padding:80px 0;
+
+}
+
+.categories-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+
+}
+
+.category-card{
+
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+    cursor:pointer;
+
+}
+
+.category-card img{
+
+    width:100%;
+    height:450px;
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.category-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.category-card::before{
+
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+    to top,
+    rgba(0,0,0,.70),
+    rgba(0,0,0,.15),
+    transparent);
+
+}
+
+.category-overlay{
+
+    position:absolute;
+
+    left:25px;
+    right:25px;
+    bottom:25px;
+
+    color:#fff;
+
+}
+
+.category-overlay h3{
+
+    font-family:var(--heading);
+    font-size:34px;
+    margin-bottom:12px;
+
+}
+
+.category-overlay p{
+
+    line-height:1.8;
+    color:rgba(255,255,255,.92);
+
+}
