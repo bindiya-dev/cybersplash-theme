@@ -4,8 +4,11 @@
 
         <div class="hero-grid">
 
-            <article class="hero-card">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hero-1.jpg" alt="">
+            <article class="hero-card"> 
+                    <?php if ( has_post_thumbnail() ) { the_post_thumbnail('cybersplash-hero', array(
+                    'alt'   => esc_attr( get_the_title() ),
+                    'class' => 'hero-image',
+                )); } ?>
                 <div class="hero-overlay">
                     <span class="hero-category">Fashion</span>
                     <h2>Elegant Neutral Looks</h2>
