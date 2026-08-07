@@ -547,3 +547,47 @@ gap:12px;
 }
 
 }
+
+@media (max-width:991px){
+
+.footer-menu{
+
+flex-wrap:wrap;
+
+gap:24px;
+
+}
+
+}
+
+@media (max-width:767px){
+
+.site-footer{
+
+padding:70px 0 30px;
+
+}
+
+.footer-menu{
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.footer-social{
+
+flex-wrap:wrap;
+
+gap:20px;
+
+}
+
+.footer-logo img{
+
+width:180px;
+
+}
+
+}
