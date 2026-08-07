@@ -1,64 +1,30 @@
 <?php
+/**
+ * Theme Functions
+ *
+ * @package CyberSplash
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function cybersplash_setup() {
+$cybersplash_includes = array(
+	'/inc/theme-setup.php',
+	'/inc/enqueue.php',
+	'/inc/image-sizes.php',
+	'/inc/widgets.php',
+	'/inc/helpers.php',
+	'/inc/template-functions.php',
+	'/inc/customizer.php',
+	'/inc/hooks.php',
+);
 
-	add_theme_support( 'title-tag' );
-	add_theme_support( 'post-thumbnails' );
+foreach ( $cybersplash_includes as $file ) {
 
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		)
-	);
+	$file_path = get_template_directory() . $file;
 
-	register_nav_menus(
-		array(
-			'primary' => __( 'Primary Menu', 'cybersplash' ),
-		)
-	);
+	if ( file_exists( $file_path ) ) {
+		require_once $file_path;
+	}
 }
-
-add_action( 'after_setup_theme', 'cybersplash_setup' );
-
-function cybersplash_enqueue_assets() {
-
-    wp_enqueue_style(
-        'cybersplash-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap',
-        array(),
-        null
-    );
-
-	wp_enqueue_style(
-		'cybersplash-style',
-		get_template_directory_uri() . '/assets/css/style.css',
-		array(),
-		wp_get_theme()->get( 'Version' )
-	);
-
-    wp_enqueue_style(
-        'cybersplash-responsive',
-        get_template_directory_uri() . '/assets/css/responsive.css',
-        array( 'cybersplash-style' ),
-        wp_get_theme()->get( 'Version' )
-    );
-
-	wp_enqueue_script(
-		'cybersplash-script',
-		get_template_directory_uri() . '/assets/js/main.js',
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-}
-
-add_action( 'wp_enqueue_scripts', 'cybersplash_enqueue_assets' );
