@@ -9,6 +9,7 @@ get_header();
 <?php get_template_part( 'template-parts/sections/latest-stories' ); ?>
 <?php get_template_part( 'template-parts/sections/explore-more' ); ?>
 <?php get_template_part( 'template-parts/sections/style-categories' ); ?>
+<?php get_template_part( 'template-parts/sections/about' ); ?>
 </main>
 
 <?php

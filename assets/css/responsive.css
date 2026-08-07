@@ -422,3 +422,86 @@ font-size:24px;
 }
 
 }
+
+/*=====================================
+About Section
+=====================================*/
+
+@media (max-width:991px){
+
+.about-wrapper{
+
+grid-template-columns:1fr;
+gap:50px;
+
+}
+
+.about-image img{
+
+height:550px;
+
+}
+
+.about-content{
+
+max-width:100%;
+
+}
+
+.about-content .section-title{
+
+font-size:42px;
+
+}
+
+}
+
+@media (max-width:767px){
+
+.about-section{
+
+padding:70px 0;
+
+}
+
+.about-image img{
+
+height:420px;
+
+}
+
+.about-content .section-title{
+
+font-size:34px;
+
+}
+
+.about-content p{
+
+font-size:16px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.about-image img{
+
+height:340px;
+
+}
+
+.about-content .section-title{
+
+font-size:28px;
+
+}
+
+.about-author h4{
+
+font-size:22px;
+
+}
+
+}
