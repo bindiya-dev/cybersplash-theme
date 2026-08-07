@@ -505,3 +505,45 @@ font-size:22px;
 }
 
 }
+
+/*=====================================
+Instagram Gallery
+=====================================*/
+
+@media (max-width:991px){
+
+.instagram-grid{
+
+grid-template-columns:repeat(3,1fr);
+
+}
+
+}
+
+@media (max-width:767px){
+
+.instagram-gallery{
+
+padding:70px 0;
+
+}
+
+.instagram-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:16px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.instagram-grid{
+
+gap:12px;
+
+}
+
+}

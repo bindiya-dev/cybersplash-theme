@@ -688,3 +688,67 @@ About Section
     background:var(--primary);
     color:#fff;
 }
+
+/*=====================================
+Instagram Gallery
+=====================================*/
+
+.instagram-gallery{
+    padding:100px 0;
+    background:#faf8f5;
+}
+
+.instagram-grid{
+
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:20px;
+
+}
+
+.instagram-item{
+
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+
+}
+
+.instagram-item img{
+
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+
+    transition:.5s ease;
+
+}
+
+.instagram-overlay{
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+
+    transition:.35s ease;
+
+}
+
+.instagram-item:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.instagram-item:hover .instagram-overlay{
+
+    opacity:1;
+
+}
