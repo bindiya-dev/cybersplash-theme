@@ -222,3 +222,119 @@ Featured Article
     }
 
 }
+
+/*=====================================
+Latest Stories
+=====================================*/
+
+@media (max-width:991px){
+
+.latest-stories{
+
+padding:70px 0;
+
+}
+
+.section-title{
+
+font-size:42px;
+
+}
+
+.stories-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:24px;
+
+}
+
+.story-card--tall .story-image img{
+
+height:500px;
+
+}
+
+.story-card--large .story-image img{
+
+height:420px;
+
+}
+
+}
+
+@media (max-width:767px){
+
+.section-heading{
+
+margin-bottom:45px;
+
+}
+
+.section-title{
+
+font-size:34px;
+
+}
+
+.stories-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.story-card--large .story-image img,
+.story-card--tall .story-image img,
+.story-card .story-image img{
+
+height:340px;
+
+}
+
+.story-content{
+
+padding:22px;
+
+}
+
+.story-content h3{
+
+font-size:24px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.latest-stories{
+
+padding:55px 0;
+
+}
+
+.section-title{
+
+font-size:28px;
+
+}
+
+.story-card .story-image img{
+
+height:280px;
+
+}
+
+.story-content{
+
+padding:20px;
+
+}
+
+.story-content h3{
+
+font-size:22px;
+
+}
+
+}

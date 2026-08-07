@@ -6,6 +6,7 @@ get_header();
 <?php get_template_part( 'template-parts/sections/hero' ); ?>
 <?php get_template_part( 'template-parts/sections/featured-categories' ); ?>
 <?php get_template_part( 'template-parts/sections/featured-article' ); ?>
+<?php get_template_part( 'template-parts/sections/latest-stories' ); ?>
 </main>
 
 <?php
