@@ -868,3 +868,64 @@ Footer
     color:#999;
 
 }
+
+/*
+Theme Name: CyberSplash
+Theme URI: https://github.com/bindiya-dev
+Author: Bindiya
+Author URI: https://github.com/bindiya-dev
+Description: Premium Fashion Blog Theme
+Version: 1.0
+Text Domain: cybersplash
+*/
+
+/*=====================================
+Single Post
+=====================================*/
+
+.single-post{
+	padding:100px 0;
+}
+
+.single-post-image{
+	margin-bottom:40px;
+	border-radius:12px;
+	overflow:hidden;
+}
+
+.single-post-image img{
+	width:100%;
+	height:auto;
+	display:block;
+}
+
+.single-post-header{
+	max-width:850px;
+	margin:0 auto 40px;
+	text-align:center;
+}
+
+.single-post-title{
+	margin-top:20px;
+	font-family:var(--heading);
+	font-size:52px;
+	line-height:1.2;
+	color:var(--dark);
+}
+
+.single-post-content{
+	max-width:850px;
+	margin:0 auto;
+	font-size:18px;
+	line-height:1.9;
+}
+
+.single-post-content p{
+	margin-bottom:24px;
+}
+
+.single-post-content img{
+	max-width:100%;
+	height:auto;
+	border-radius:10px;
+}
