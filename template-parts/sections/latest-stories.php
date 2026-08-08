@@ -1,159 +1,118 @@
+<?php
+/**
+ * Latest Stories
+ *
+ * @package CyberSplash
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+$stories_query = new WP_Query(
+	array(
+		'post_type'           => 'post',
+		'posts_per_page'      => 6,
+		'offset'              => 6,
+		'post__not_in'        => get_option( 'sticky_posts' ),
+		'ignore_sticky_posts' => true,
+	)
+);
+
+if ( $stories_query->have_posts() ) :
+?>
+
 <section class="latest-stories">
 
-    <div class="container">
+	<div class="container">
 
-        <div class="section-heading">
+		<div class="section-heading">
 
-            <span class="section-subtitle">
-                Fashion Magazine
-            </span>
+			<span class="section-subtitle">
+				Latest Updates
+			</span>
 
-            <h2 class="section-title">
-                Latest Stories
-            </h2>
+			<h2 class="section-title">
+				Latest Stories
+			</h2>
 
-        </div>
+		</div>
 
-        <div class="stories-grid">
+		<div class="stories-grid">
 
-            <article class="story-card story-card--large">
+			<?php
+			$count = 1;
 
-                <figure class="story-image">
+			while ( $stories_query->have_posts() ) :
+				$stories_query->the_post();
 
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/story-1.png' ); ?>" alt="">
+				$card_class = 'story-card';
 
-                </figure>
+				if ( 1 === $count ) {
+					$card_class .= ' story-card--large';
+				} elseif ( 5 === $count ) {
+					$card_class .= ' story-card--tall';
+				}
+			?>
 
-                <div class="story-content">
+				<article class="<?php echo esc_attr( $card_class ); ?>">
 
-                    <span class="story-meta">
-                        March 1, 2026 • Lifestyle
-                    </span>
+					<figure class="story-image">
 
-                    <h3>
-                        The Royal Aesthetic: Inspired Living
-                    </h3>
+						<?php
+						if ( has_post_thumbnail() ) {
 
-                    <p>
-                        Step into a world of timeless elegance inspired by rich textures and graceful living.
-                    </p>
+							the_post_thumbnail(
+								'cybersplash-story',
+								array(
+									'alt' => esc_attr( get_the_title() ),
+								)
+							);
 
-                </div>
+						}
+						?>
 
-            </article>
+					</figure>
 
-            <article class="story-card">
+					<div class="story-content">
 
-                <figure class="story-image">
+						<?php cybersplash_post_meta(); ?>
 
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/story-1.png' ); ?>" alt="">
+						<h3>
 
-                </figure>
+							<a href="<?php the_permalink(); ?>">
 
-                <div class="story-content">
+								<?php the_title(); ?>
 
-                    <span class="story-meta">
-                        March 1, 2026 • Fashion
-                    </span>
+							</a>
 
-                    <h3>
-                        Denim Diaries
-                    </h3>
+						</h3>
 
-                </div>
+						<?php if ( 1 === $count ) : ?>
 
-            </article>
+							<p>
 
-            <article class="story-card">
+								<?php echo esc_html( cybersplash_excerpt( 18 ) ); ?>
 
-                <figure class="story-image">
+							</p>
 
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/story-1.png' ); ?>" alt="">
+						<?php endif; ?>
 
-                </figure>
+					</div>
 
-                <div class="story-content">
+				</article>
 
-                    <span class="story-meta">
-                        March 1, 2026 • Beauty
-                    </span>
+			<?php
+				$count++;
+			endwhile;
+			?>
 
-                    <h3>
-                        My Story: A Journey Into Style
-                    </h3>
+		</div>
 
-                </div>
-
-            </article>
-
-            <article class="story-card">
-
-                <figure class="story-image">
-
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/story-1.png' ); ?>" alt="">
-
-                </figure>
-
-                <div class="story-content">
-
-                    <span class="story-meta">
-                        March 1, 2026 • Trends
-                    </span>
-
-                    <h3>
-                        Minimalism: Less Is More
-                    </h3>
-
-                </div>
-
-            </article>
-
-            <article class="story-card story-card--tall">
-
-                <figure class="story-image">
-
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/story-1.png' ); ?>" alt="">
-
-                </figure>
-
-                <div class="story-content">
-
-                    <span class="story-meta">
-                        March 1, 2026 • Fashion
-                    </span>
-
-                    <h3>
-                        Street Style: New York Edition
-                    </h3>
-
-                </div>
-
-            </article>
-
-            <article class="story-card">
-
-                <figure class="story-image">
-
-                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/story-1.png' ); ?>" alt="">
-
-                </figure>
-
-                <div class="story-content">
-
-                    <span class="story-meta">
-                        March 1, 2026 • Lifestyle
-                    </span>
-
-                    <h3>
-                        Cozy Chic: Comfort Meets Style
-                    </h3>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
+	</div>
 
 </section>
+
+<?php
+	wp_reset_postdata();
+endif;

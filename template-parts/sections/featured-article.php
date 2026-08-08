@@ -1,37 +1,83 @@
+<?php
+/**
+ * Featured Article
+ *
+ * @package CyberSplash
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+$sticky = get_option( 'sticky_posts' );
+
+if ( ! empty( $sticky ) ) :
+
+	$featured_query = new WP_Query(
+		array(
+			'post__in'            => $sticky,
+			'posts_per_page'      => 1,
+			'ignore_sticky_posts' => 1,
+		)
+	);
+
+	if ( $featured_query->have_posts() ) :
+?>
+
 <section class="featured-article">
 
-    <div class="container">
+	<div class="container">
 
-        <figure class="featured-article-image">
+		<?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
 
-            <img
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/featured-article.png' ); ?>"
-                alt="Featured Article">
+			<figure class="featured-article-image">
 
-        </figure>
+				<?php
+				if ( has_post_thumbnail() ) {
 
-        <div class="featured-article-content">
+					the_post_thumbnail(
+						'full',
+						array(
+							'alt' => esc_attr( get_the_title() ),
+						)
+					);
 
-            <span class="article-meta">
+				}
+				?>
 
-                March 2026 • Fashion
+			</figure>
 
-            </span>
+			<div class="featured-article-content">
 
-            <h2>
+				<?php cybersplash_post_meta(); ?>
 
-                The Return of Effortless Elegance
+				<h2>
 
-            </h2>
+					<a href="<?php the_permalink(); ?>">
 
-            <p>
+						<?php the_title(); ?>
 
-                Fashion trends may come and go, but timeless elegance remains. This season embraces soft tones, minimal silhouettes, and confident simplicity that defines modern style.
+					</a>
 
-            </p>
+				</h2>
 
-        </div>
+				<p>
 
-    </div>
+					<?php echo esc_html( cybersplash_excerpt( 35 ) ); ?>
+
+				</p>
+
+			</div>
+
+		<?php endwhile; ?>
+
+	</div>
 
 </section>
+
+<?php
+	endif;
+
+	wp_reset_postdata();
+
+endif;
