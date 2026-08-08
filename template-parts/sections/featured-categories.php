@@ -1,89 +1,89 @@
+<?php
+/**
+ * Featured Categories
+ *
+ * @package CyberSplash
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+$featured_query = new WP_Query(
+	array(
+		'post_type'      => 'post',
+		'posts_per_page' => 3,
+		'offset'         => 3,
+	)
+);
+
+if ( $featured_query->have_posts() ) :
+?>
+
 <section class="featured-categories">
 
-    <div class="container">
+	<div class="container">
 
-        <div class="featured-grid">
+		<div class="featured-grid">
 
-            <article class="featured-card">
+			<?php while ( $featured_query->have_posts() ) : $featured_query->the_post(); ?>
 
-                <figure class="featured-image">
+				<article class="featured-card">
 
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/featured-1.jpg" alt="">
+					<figure class="featured-image">
 
-                </figure>
+						<?php
+						if ( has_post_thumbnail() ) {
 
-                <div class="featured-content">
+							the_post_thumbnail(
+								'cybersplash-featured',
+								array(
+									'alt' => esc_attr( get_the_title() ),
+								)
+							);
 
-                    <span class="featured-category">
-                        Featured Posts
-                    </span>
+						}
+						?>
 
-                    <h3>
-                        The Return of Effortless Elegance
-                    </h3>
+					</figure>
 
-                    <p>
-                        Fashion trends may come and go, but timeless elegance always remains.
-                    </p>
+					<div class="featured-content">
 
-                </div>
+						<span class="featured-category">
 
-            </article>
+							<?php echo esc_html( cybersplash_category() ); ?>
 
-            <article class="featured-card">
+						</span>
 
-                <figure class="featured-image">
+						<h3>
 
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/featured-2.jpg" alt="">
+							<a href="<?php the_permalink(); ?>">
 
-                </figure>
+								<?php the_title(); ?>
 
-                <div class="featured-content">
+							</a>
 
-                    <span class="featured-category">
-                        Editor's Picks
-                    </span>
+						</h3>
 
-                    <h3>
-                        Glow & Grace
-                    </h3>
+						<p>
 
-                    <p>
-                        Discover beauty routines inspired by effortless confidence.
-                    </p>
+							<?php echo esc_html( cybersplash_excerpt( 18 ) ); ?>
 
-                </div>
+						</p>
 
-            </article>
+					</div>
 
-            <article class="featured-card">
+				</article>
 
-                <figure class="featured-image">
+			<?php endwhile; ?>
 
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/featured-3.jpg" alt="">
+		</div>
 
-                </figure>
-
-                <div class="featured-content">
-
-                    <span class="featured-category">
-                        Latest in Fashion
-                    </span>
-
-                    <h3>
-                        Chic Street Style
-                    </h3>
-
-                    <p>
-                        Contemporary outfits that balance comfort and sophistication.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
+	</div>
 
 </section>
+
+<?php
+	wp_reset_postdata();
+
+endif;
